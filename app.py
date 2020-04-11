@@ -21,15 +21,11 @@ options_dropdown = [{'label':id_1,'value':id_2} for id_1,id_2 in zip(df_opt.inde
 
 df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
 df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'})
-#df_JPN = df[df.iso_alpha == 'JPN']
-#df_CHN = df[df.iso_alpha == 'CHN']
-#df_country = od.return_data()
 
 header = oi.return_header()
 main = oi.return_main(df1,df2,options_dropdown)
 
 app.layout = html.Div([header, main])
-#app.layout = html.Div([header])
 
 @app.callback(Output(component_id = 'graph_updating_container', component_property = 'children'),
 				[Input(component_id = 'wid_select_platform', component_property = 'value')])
