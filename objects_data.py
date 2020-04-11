@@ -37,6 +37,7 @@ def return_bar_plot(df):
 	    xaxis_title="Platform",
 	    yaxis_title="Global Sales",
 	)
+
 	return(fig)
 
 def return_scatter_plot(df):
