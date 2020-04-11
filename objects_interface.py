@@ -18,7 +18,7 @@ def return_header():
 
 
 #Main -> Cuerpo de la página
-def return_main(df1, df2, options_dropdown_platform,options_dropdown_publisher):
+def return_main(df1, df2, options_dropdown_publisher):
 	main = html.Div(children = [
 		html.Div(children=[
 			html.Div(html.P('Una persona puede contraer la COVID-19 por contacto con otra que esté'
@@ -49,9 +49,9 @@ def return_main(df1, df2, options_dropdown_platform,options_dropdown_publisher):
 			html.Div(children=[
 				html.Div([
 			    	dcc.Dropdown(
-					    options=options_dropdown_platform,
+					    options=options_dropdown_publisher,
 			    		#labelClassName = 'label_rbutton',
-					    value='3DS',
+					    value='Nintendo',
 					    id = 'wid_select_platform'
 					), 
 			    ], className = 'dropdown_buttons'),
