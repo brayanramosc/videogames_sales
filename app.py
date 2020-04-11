@@ -46,7 +46,7 @@ def update_trace(publisher_select):
 	print(publisher_select)
 	df_sample = df[df.Publisher == publisher_select]
 	global_sales_by_specific_publisher = df_sample.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'})
-	graph = dcc.Graph(figure = od.return_scatter_plot(global_sales_by_specific_publisher))
+	graph = dcc.Graph(figure = od.return_pie_plot(global_sales_by_specific_publisher))
 	return(html.Div([graph], id = 'graph_cases_content'))
 
 if __name__ == "__main__":

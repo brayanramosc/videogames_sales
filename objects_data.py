@@ -59,3 +59,9 @@ def return_scatter_plot(df):
 	    yaxis_title="Global Sales",
 	)	
 	return(fig)
+
+def return_pie_plot(df):
+	
+	fig = px.pie(df, values=df.Global_Sales.values, names=df.index, title='Ventas globales por género')
+	
+	return(fig)
