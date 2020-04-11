@@ -1,4 +1,4 @@
-/*body{
+body{
 	margin: 0px;
 	background-image: url("background-img.jpg");
 	background-position: center; *//* Center the image */
@@ -97,7 +97,10 @@ h2,h3,p{
 	border: solid 1px;
 	border-radius: 3px;
 }
-#graph_updating_platform{
+#graph_updating_publisher_1{
+	height: 400px;
+}
+#graph_updating_publisher_2{
 	height: 400px;
 }
 .clear{

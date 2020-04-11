@@ -52,13 +52,13 @@ def return_main(df1, df2, options_dropdown_publisher):
 					    options=options_dropdown_publisher,
 			    		#labelClassName = 'label_rbutton',
 					    value='Nintendo',
-					    id = 'wid_select_platform'
+					    id = 'wid_select_publisher_1'
 					), 
 			    ], className = 'dropdown_buttons'),
 
 			    html.Div([
 			    	html.Div(className='clear')
-			    ],id = 'graph_updating_platform'),
+			    ],id = 'graph_updating_publisher_1'),
 
 				html.Div(className='clear')
 
@@ -70,13 +70,13 @@ def return_main(df1, df2, options_dropdown_publisher):
 					    options=options_dropdown_publisher,
 			    		#labelClassName = 'label_rbutton',
 					    value='Nintendo',
-					    id = 'wid_select_publisher'
+					    id = 'wid_select_publisher_2'
 					), 
 			    ], className = 'dropdown_buttons'),
 
 			    html.Div([
 			    	html.Div(className='clear')
-			    ],id = 'graph_updating_publisher'),
+			    ],id = 'graph_updating_publisher_2'),
 
 				html.Div(className='clear')
 			],className='container_R_bot'),
