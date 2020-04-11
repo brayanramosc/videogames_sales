@@ -19,8 +19,8 @@ df_opt = pd.DataFrame(df.groupby(['Platform']).agg({'Platform':'unique'}).apply(
 options_dropdown = [{'label':id_1,'value':id_2} for id_1,id_2 in zip(df_opt.index,df_opt.Platform)]
 
 
-df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
-df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'})
+df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'}).reset_index()
+df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'}).reset_index()
 
 header = oi.return_header()
 main = oi.return_main(df1,df2,options_dropdown)
