@@ -26,12 +26,13 @@ df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
 df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'})
 
 header = oi.return_header()
-main = oi.return_main(df1,df2,options_dropdown_platform,options_dropdown_publisher)
+main = oi.return_main(df1,df2,options_dropdown,options_dropdown_publisher)
 
 app.layout = html.Div([header, main])
 
 
-@app.callback(Output(component_id = 'graph_updating_container', component_property = 'children'),
+#Actualización de la gráfica 
+@app.callback(Output(component_id = 'container_L_bot', component_property = 'children'),
 				[Input(component_id = 'wid_select_publisher', component_property = 'value')])
 
 def update_trace(publisher_select):
@@ -42,7 +43,7 @@ def update_trace(publisher_select):
 	graph = dcc.Graph(figure = od.return_scatter_plot(global_sales_by_specific_platform))
 	return(html.Div([graph], id = 'graph_cases_content'))
 
-@app.callback(Output(component_id = 'graph_updating_publisher', component_property = 'children'),
+@app.callback(Output(component_id = 'container_R_bot', component_property = 'children'),
 				[Input(component_id = 'wid_select_publisher', component_property = 'value')])
 def update_trace(publisher_select):
 	print(publisher_select)
