@@ -15,12 +15,12 @@ from dash.dependencies import Output,Input,State
 app = dash.Dash(__name__)
 
 df = od.return_data()
-df_opt = pd.DataFrame(df.groupby(['Platform']).agg({'Platform':'unique'}).apply(lambda x:x['Platform'][0],axis =1),columns= ['Platform'])
-options_dropdown = [{'label':id_1,'value':id_2} for id_1,id_2 in zip(df_opt.index,df_opt.Platform)]
+df_opt = pd.DataFrame(df.groupby(['Publisher']).agg({'Publisher':'unique'}).apply(lambda x:x['Publisher'][0],axis =1),columns= ['Publisher'])
+options_dropdown = [{'label':id_1,'value':id_2} for id_1,id_2 in zip(df_opt.index,df_opt.Publisher)]
 
 
-df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'}).reset_index()
-df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'}).reset_index()
+df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
+df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'})
 
 header = oi.return_header()
 main = oi.return_main(df1,df2,options_dropdown)
@@ -28,11 +28,11 @@ main = oi.return_main(df1,df2,options_dropdown)
 app.layout = html.Div([header, main])
 
 @app.callback(Output(component_id = 'graph_updating_container', component_property = 'children'),
-				[Input(component_id = 'wid_select_platform', component_property = 'value')])
+				[Input(component_id = 'wid_select_publisher', component_property = 'value')])
 
-def update_trace(platform_select):
-	print(platform_select)
-	df_sample = df[df.Platform == platform_select]
+def update_trace(publisher_select):
+	print(publisher_select)
+	df_sample = df[df.Publisher == publisher_select]
 	global_sales_by_specific_platform = df_sample.groupby('Year', as_index = True).agg({'Global_Sales':'sum'})
 	graph = dcc.Graph(figure = od.return_scatter_plot(global_sales_by_specific_platform))
 	return(html.Div([graph], id = 'graph_cases_content'))

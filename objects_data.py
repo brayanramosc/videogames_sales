@@ -15,32 +15,46 @@ def return_data():
 	return(df)
 
 def return_bar_plot(df):
-	fig = go.Figure(data=[go.Bar(
-            x=df.index, y=df.Global_Sales,
-            text=df.Global_Sales,
-            texttemplate='%{text:.2s}',
-            textposition='outside',
-        )])
+	trace = go.Bar(
+	            x = df.index,
+	            y = df.Global_Sales.values,
+	            text=df.Global_Sales,
+	            texttemplate='%{text:.2s}',
+	            textposition='outside',
+	        )
+	fig = go.Figure(data = [trace])
+
 	fig.update_layout(
-	        title_text = 'Global sales for Genre',
-	        showlegend = False,
-	        geo = dict(
-	            landcolor = 'rgb(217, 217, 217)',
-	        ),
-	        margin = {'l':0,'b':0.1,'r':0},
-	        height =  250,
-	    )
+		plot_bgcolor = '#b5fbff',
+		margin = {'l':0,'b':0.1,'t':40,'r':0},
+	    width = 1000,
+	    title={
+	        'text': "Ventas globales por plataforma",
+	        'y':0.9,
+	        'x':0.5,
+	        'xanchor': 'center',
+	        'yanchor': 'top'},
+	    xaxis_title="Platform",
+	    yaxis_title="Global Sales",
+	)
 	return(fig)
 
 def return_scatter_plot(df):
 	trace = go.Scatter(x = df.index,
 	                   y = df.Global_Sales.values,
-	                  mode = 'lines') #'markers' muestra los puntos y 'lines' las lineas -> mode = 'markers+lines'
+	                  mode = 'lines')
 
 	fig = go.Figure([trace])
 
 	fig.update_layout(
 	    width = 1000,
-	    title = 'Titulo aleatorio',
+	    title={
+	        'text': "Ventas globales por plataforma",
+	        'y':0.9,
+	        'x':0.5,
+	        'xanchor': 'center',
+	        'yanchor': 'top'},
+	    xaxis_title="Platform",
+	    yaxis_title="Global Sales",
 	)	
 	return(fig)

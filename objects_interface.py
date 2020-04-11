@@ -46,8 +46,8 @@ def return_main(df1, df2, options_dropdown):
 		    	dcc.Dropdown(
 				    options=options_dropdown,
 		    		#labelClassName = 'label_rbutton',
-				    value='3DS',
-				    id = 'wid_select_platform'
+				    value='Nintendo',
+				    id = 'wid_select_publisher'
 				), 
 
 		    ], className = 'radio_buttons'),

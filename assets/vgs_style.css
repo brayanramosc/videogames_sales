@@ -1,10 +1,10 @@
-/*body{
+body{
 	margin: 0px;
 	background-image: url("background-img.jpg");
-	background-position: center; *//* Center the image */
-  	/*background-repeat: no-repeat; *//* Do not repeat the image */
-  	background-size: cover; /* Resize the background image to cover the entire container 
-}*/
+	background-position: center; /* Center the image */
+  	background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */
+}
 
 /*Header*/
 .header{
