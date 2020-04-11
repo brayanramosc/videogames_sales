@@ -28,7 +28,7 @@ def return_bar_plot(df):
 	            landcolor = 'rgb(217, 217, 217)',
 	        ),
 	        margin = {'l':0,'b':0.1,'r':0},
-	        height =  250,
+	        height =  400,
 	    )
 	return(fig)
 
@@ -40,7 +40,11 @@ def return_scatter_plot(df):
 	fig = go.Figure([trace])
 
 	fig.update_layout(
-	    width = 1000,
-	    title = 'Titulo aleatorio',
+	        showlegend = False,
+	        geo = dict(
+	            landcolor = 'rgb(217, 217, 217)',
+	        ),
+	        margin = {'l':0,'b':0.1,'r':0},
+	        height =  400,
 	)	
 	return(fig)
