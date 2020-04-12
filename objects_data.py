@@ -14,7 +14,12 @@ def return_data():
 	global_sales_by_platform = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
 	return(df)
 
-def return_bar_plot(df):
+def return_bar_plot(df,variable):
+	if variable == 'plataforma':
+	    x_title='Platform'
+	else:
+	    x_title='Genre'
+	
 	trace = go.Bar(
 	            x = df.index,
 	            y = df.Global_Sales.values,
@@ -26,15 +31,15 @@ def return_bar_plot(df):
 
 	fig.update_layout(
 		plot_bgcolor = '#b5fbff',
-		margin = {'l':0,'b':0.1,'t':40,'r':0},
+		margin = {'l':0,'b':0.1,'t':80,'r':0},
 	    width = 1000,
 	    title={
-	        'text': "Ventas globales por plataforma",
+	        'text': "Ventas globales por "+variable,
 	        'y':0.9,
 	        'x':0.5,
 	        'xanchor': 'center',
 	        'yanchor': 'top'},
-	    xaxis_title="Platform",
+	    xaxis_title=x_title,
 	    yaxis_title="Global Sales",
 	)
 
