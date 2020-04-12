@@ -21,10 +21,10 @@ options_dropdown_publisher = [{'label':id_1,'value':id_2} for id_1,id_2 in zip(d
 
 df1 = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
 df2 = df.groupby('Genre', as_index = True).agg({'Global_Sales':'sum'})
-
+df3 = df.groupby('Rank', as_index = True).agg({'Name':'sum','NA_Sales':'sum','EU_Sales':'sum','JP_Sales':'sum','Other_Sales':'sum'}).iloc[:10]
 header = oi.return_header()
 
-main = oi.return_main(df1,df2,options_dropdown_publisher)
+main = oi.return_main(df1,df2,df3,options_dropdown_publisher)
 app.layout = html.Div([header, main])
 
 
