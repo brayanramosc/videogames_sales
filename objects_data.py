@@ -43,12 +43,12 @@ def return_bar_plot(df):
 def return_scatter_plot(df):
 	trace = go.Scatter(x = df.index,
 	                   y = df.Global_Sales.values,
-	                  mode = 'lines')
+	                  mode = 'markers+lines')
 
 	fig = go.Figure([trace])
 
 	fig.update_layout(
-	    width = 1000,
+	    #width = 1000,
 	    title={
 	        'text': "Ventas globales por plataforma",
 	        'y':0.9,
@@ -61,7 +61,5 @@ def return_scatter_plot(df):
 	return(fig)
 
 def return_pie_plot(df):
-	
 	fig = px.pie(df, values=df.Global_Sales.values, names=df.index, title='Ventas globales por género')
-	
 	return(fig)
