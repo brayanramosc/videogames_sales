@@ -34,12 +34,8 @@ def return_bar_plot(df,variable):
 	fig = go.Figure(data = [trace])
 
 	fig.update_layout(
-<<<<<<< HEAD
-		plot_bgcolor = '#b5fbff',
-=======
 		paper_bgcolor='rgba(0,0,0,0)',
     	plot_bgcolor='rgba(0,0,0,0)',
->>>>>>> c14a531d952da3391f883ec7c40b476d09f3ee89
 		margin = {'l':0,'b':0.1,'t':80,'r':0},
 	    width = 1000,
 	    title={
@@ -71,12 +67,12 @@ def return_scatter_plot(df):
 		paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
 	    title={
-	        'text': "Ventas globales por plataforma",
+	        'text': "Ventas globales por publicador",
 	        'y':0.9,
 	        'x':0.5,
 	        'xanchor': 'center',
 	        'yanchor': 'top'},
-	    xaxis_title="Platform",
+	    xaxis_title="Publisher",
 	    yaxis_title="Global Sales",
 	)	
 	return(fig)
