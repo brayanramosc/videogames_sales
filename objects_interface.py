@@ -41,12 +41,12 @@ def return_main(df1, df2, df3, options_dropdown_publisher):
 
 		html.Div(children=[
 			html.Div(children=[
-				html.Div([dcc.Graph(className = 'graph_container', figure = od.return_bar_plot(df1))]),	
+				html.Div([dcc.Graph(className = 'graph_container', figure = od.return_bar_plot(df1, 'plataforma'))]),	
 				html.Div(className='clear')
 			],className='container_L_top'),
 
 			html.Div(children=[
-				html.Div([dcc.Graph(className = 'graph_container', figure = od.return_bar_plot(df2))]),	
+				html.Div([dcc.Graph(className = 'graph_container', figure = od.return_bar_plot(df2, 'genero'))]),	
 				html.Div(className='clear')
 			],className='container_R_top'),
 
