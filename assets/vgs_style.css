@@ -5,6 +5,7 @@ body{
   	/*background-repeat: no-repeat; *//* Do not repeat the image */
   	background-size: cover; /* Resize the background image to cover the entire container */
 }
+
 h2,h3,p{
 	margin-top: 0px;
     margin-bottom: 0px;

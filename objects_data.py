@@ -11,6 +11,10 @@ def return_data():
 	df = pd.read_csv('./data/vgsales.csv',index_col = 0)
 	df.head()
 
+	len(df[pd.isna(df.Year)])
+	df = df.dropna()
+	df.info()
+
 	global_sales_by_platform = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
 	return(df)
 
@@ -25,7 +29,8 @@ def return_bar_plot(df):
 	fig = go.Figure(data = [trace])
 
 	fig.update_layout(
-		plot_bgcolor = '#b5fbff',
+		paper_bgcolor='rgba(0,0,0,0)',
+    	plot_bgcolor='rgba(0,0,0,0)',
 		margin = {'l':0,'b':0.1,'t':40,'r':0},
 	    width = 1000,
 	    title={
@@ -43,12 +48,13 @@ def return_bar_plot(df):
 def return_scatter_plot(df):
 	trace = go.Scatter(x = df.index,
 	                   y = df.Global_Sales.values,
-	                  mode = 'lines')
+	                  mode = 'markers+lines')
 
 	fig = go.Figure([trace])
 
 	fig.update_layout(
-	    width = 1000,
+		paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
 	    title={
 	        'text': "Ventas globales por plataforma",
 	        'y':0.9,
@@ -91,5 +97,4 @@ def return_name_plot(df):
 	        'yanchor': 'top'},
 	    xaxis_title="Videogames",
 	)	
-	
 	return(fig)
