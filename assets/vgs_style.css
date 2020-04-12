@@ -5,6 +5,7 @@ body{
   	/*background-repeat: no-repeat; *//* Do not repeat the image */
   	background-size: cover; /* Resize the background image to cover the entire container */
 }
+
 h2,h3,p{
 	margin-top: 0px;
     margin-bottom: 0px;
@@ -12,6 +13,11 @@ h2,h3,p{
 }
 /*Header*/
 .header{
+<<<<<<< HEAD
+=======
+	background-color: #58FAD0;
+	border-radius: 15px;
+>>>>>>> c14a531d952da3391f883ec7c40b476d09f3ee89
 	width: 97%;
 	height: 80px;
 	margin-left: 1.5%;
@@ -35,7 +41,8 @@ h2,h3,p{
 	width: 75.5%;
 	margin-top: 27.5px;
 	margin-left: 22%;
-	border: solid 1px;
+	padding-left: 20px;
+	/*border: solid 1px;*/
 }
 
 /*Main*/

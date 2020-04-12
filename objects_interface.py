@@ -10,8 +10,8 @@ import numpy as np
 def return_header():
 	header=html.Div(children=[
 		html.Img(src="/assets/Logo_UdeA.png", id='logo_udea'),
-		html.Img(src="/assets/failed_logo_semillero.png", id='logo_semillero'),
-		html.Div(html.H2(['Encabezado']),className='title_header'),
+		html.Img(src="/assets/Logo_semillero.png", id='logo_semillero'),
+		html.Div(html.H2(['Videogames sales']),className='title_header'),
 		html.Div(className='clear')
 	],className='header')
 	return(header)
@@ -21,17 +21,21 @@ def return_header():
 def return_main(df1, df2, df3, options_dropdown_publisher):
 	main = html.Div(children = [
 		html.Div(children=[
-			html.Div(html.P('Una persona puede contraer la COVID-19 por contacto con otra que esté'
-							'infectada por el virus. La enfermedad puede propagarse de persona a persona' 
-							'a través de las gotículas procedentes de la nariz o la boca que salen' 
-							'despedidas cuando una persona infectada tose o exhala. Estas gotículas caen' 
-							'sobre los objetos y superficies que rodean a la persona, de modo que otras' 
-							'personas pueden contraer la COVID-19 si tocan estos objetos o superficies y' 
-							'luego se tocan los ojos, la nariz o la boca. También pueden contagiarse si' 
-							'inhalan las gotículas que haya esparcido una persona con COVID-19 al toser' 
-							'o exhalar. Por eso es importante mantenerse a más de 1 metro (3 pies) de' 
-							'distancia de una persona que se encuentre enferma. -Organización Mundial de' 
-							'la Salud .Graficas según datos del virus'),id='text'),
+			html.Div(html.P('This dataset contains a list of video games with sales greater than 100,000 copies (1980-2020).\LF'
+
+							'Fields include:'
+
+							'Rank - Ranking of overall sales.'
+							'Name - The games name.'
+							'Platform - Platform of the games release (i.e. PC,PS4, etc.).'
+							'Year - Year of the games release.'
+							'Genre - Genre of the game.'
+							'Publisher - Publisher of the game.'
+							'NA_Sales - Sales in North America (in millions).'
+							'EU_Sales - Sales in Europe (in millions).'
+							'JP_Sales - Sales in Japan (in millions).'
+							'Other_Sales - Sales in the rest of the world (in millions).'
+							'Global_Sales - Total worldwide sales.'),id='text'),
 			html.Div(className='clear')
 		],className='text_container'),
 

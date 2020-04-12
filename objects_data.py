@@ -11,6 +11,10 @@ def return_data():
 	df = pd.read_csv('./data/vgsales.csv',index_col = 0)
 	df.head()
 
+	len(df[pd.isna(df.Year)])
+	df = df.dropna()
+	#df.info()
+
 	global_sales_by_platform = df.groupby('Platform', as_index = True).agg({'Global_Sales':'sum'})
 	return(df)
 
@@ -30,7 +34,12 @@ def return_bar_plot(df,variable):
 	fig = go.Figure(data = [trace])
 
 	fig.update_layout(
+<<<<<<< HEAD
 		plot_bgcolor = '#b5fbff',
+=======
+		paper_bgcolor='rgba(0,0,0,0)',
+    	plot_bgcolor='rgba(0,0,0,0)',
+>>>>>>> c14a531d952da3391f883ec7c40b476d09f3ee89
 		margin = {'l':0,'b':0.1,'t':80,'r':0},
 	    width = 1000,
 	    title={
@@ -43,17 +52,24 @@ def return_bar_plot(df,variable):
 	    yaxis_title="Global Sales",
 	)
 
+	fig.update_traces(marker_color='blue', marker_line_color='blue',
+                  marker_line_width=1.5)
+
+	#fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightPink')
+	#fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='black')
 	return(fig)
 
 def return_scatter_plot(df):
 	trace = go.Scatter(x = df.index,
 	                   y = df.Global_Sales.values,
-	                  mode = 'lines')
+	                   line=dict(color='indigo', width=3),
+	                   mode = 'markers+lines')
 
 	fig = go.Figure([trace])
 
 	fig.update_layout(
-	    width = 1000,
+		paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
 	    title={
 	        'text': "Ventas globales por plataforma",
 	        'y':0.9,
@@ -67,8 +83,20 @@ def return_scatter_plot(df):
 
 def return_pie_plot(df):
 	
-	fig = px.pie(df, values=df.Global_Sales.values, names=df.index, title='Ventas globales por género')
-	
+	fig = px.pie(df, values=df.Global_Sales.values, names=df.index)
+
+
+	fig.update_layout(
+		margin = {'t':80},
+		title={
+	        'text': 'Ventas globales por género',
+	        'y':0.9,
+	        'x':0.5,
+	        'xanchor': 'center',
+	        'yanchor': 'top'},
+		paper_bgcolor='rgba(0,0,0,0)',
+    	plot_bgcolor='rgba(0,0,0,0)',
+	)
 	return(fig)
 
 def return_name_plot(df):
@@ -88,6 +116,8 @@ def return_name_plot(df):
 	                         line=dict(color='lime', width=3),
 	                         name='Other_Sales'))
 	fig.update_layout(
+		paper_bgcolor='rgba(0,0,0,0)',
+    	plot_bgcolor='rgba(0,0,0,0)',
 	    title={
 	        'text': "Ventas por Top 10 videojuegos",
 	        'y':0.9,
@@ -96,5 +126,4 @@ def return_name_plot(df):
 	        'yanchor': 'top'},
 	    xaxis_title="Videogames",
 	)	
-	
 	return(fig)
