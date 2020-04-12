@@ -65,3 +65,31 @@ def return_pie_plot(df):
 	fig = px.pie(df, values=df.Global_Sales.values, names=df.index, title='Ventas globales por género')
 	
 	return(fig)
+
+def return_name_plot(df):
+	x=df.Name
+	fig = go.Figure()
+	fig.add_trace(go.Scatter(x =x,
+	                         y = df.NA_Sales.values,
+	                         line=dict(color='peru', width=3),
+	                         name='NA_Sales'))
+	fig.add_trace(go.Scatter(x=x, y=df.EU_Sales.values,
+	                         line=dict(color='indigo', width=3),
+	                         name='EU_Sales'))
+	fig.add_trace(go.Scatter(x=x, y=df.JP_Sales.values,
+	                         line=dict(color='firebrick', width=3),
+	                         name='JP_Sales'))
+	fig.add_trace(go.Scatter(x=x, y=df.Other_Sales.values,
+	                         line=dict(color='lime', width=3),
+	                         name='Other_Sales'))
+	fig.update_layout(
+	    title={
+	        'text': "Ventas por Top 10 videojuegos",
+	        'y':0.9,
+	        'x':0.5,
+	        'xanchor': 'center',
+	        'yanchor': 'top'},
+	    xaxis_title="Videogames",
+	)	
+	
+	return(fig)

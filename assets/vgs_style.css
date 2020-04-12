@@ -57,6 +57,7 @@ h2,h3,p{
 .container_graphs
 {
 	height: 77%;
+	margin-bottom: 3%;
 }
 .container_L_top{
 	height: 50%;
@@ -87,6 +88,12 @@ h2,h3,p{
 	border: solid 1px;
 	box-sizing: border-box;
 }
+.graph_container_bot{
+	width: 100%;
+	border: solid 1px;
+	box-sizing: border-box;
+	margin-bottom: 3%;
+}
 #text{
 	height: 150px;
 	width: 90%;
@@ -94,12 +101,7 @@ h2,h3,p{
 	border: solid 1px;
 	border-radius: 3px;
 }
-#graph_updating_publisher_1{
-	height: 400px;
-}
-#graph_updating_publisher_2{
-	height: 400px;
-}
+
 .clear{
 	clear: both;
 }

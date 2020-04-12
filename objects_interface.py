@@ -18,7 +18,7 @@ def return_header():
 
 
 #Main -> Cuerpo de la página
-def return_main(df1, df2, options_dropdown_publisher):
+def return_main(df1, df2, df3, options_dropdown_publisher):
 	main = html.Div(children = [
 		html.Div(children=[
 			html.Div(html.P('Una persona puede contraer la COVID-19 por contacto con otra que esté'
@@ -83,6 +83,11 @@ def return_main(df1, df2, options_dropdown_publisher):
 
 			html.Div(className='clear')
 		],className='container_graphs'),
+
+		html.Div(children=[
+			html.Div([dcc.Graph(className = 'graph_container', figure = od.return_name_plot(df3))]),	
+				html.Div(className='clear')
+		],className='graph_container_bot'),
 
 		html.Div(className='clear')
 
